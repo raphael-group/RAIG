@@ -1,0 +1,29 @@
+* Required python lib for RAIG:
+	1. networkx (https://networkx.github.io/)
+	2. statsmodels (http://statsmodels.sourceforge.net/)
+
+	** put both libraries in lib/ or any path in your system (point the path in src/raig_pipeline.py)
+
+* Perform RAIG:
+	python src/runRAIG.py -c CANCER_NAME -i INPUT_FILE -o OUTPUT_DIR -n CHROMOSOME
+
+	required options: 
+	-c CANCER_NAME: specify cancer name for your runs
+	-i INPUT_FILE: specify the file with copy number segmentations (e.g. input/example.input.gbm.seg.txt)
+	-o OUTPUT_DIR: specify output directory
+	-n CHROMOSOME: chromosomes to perform on RAIG, e.g. performing chromosome 13 and 21: -n 13 21
+
+	other options: (optional)
+	-dp: Delta threshold as the percentage of mutated samples in the chromosome arm, defualt: 0.05
+	-b: Block size as the proportion of the length of the chromosome arm, default: 0.05
+	-t: Number of endpoints for determing target region, default: 2
+	-g: Gene level, defualt: 0
+	-brd: Proportion for considering broad CNA, default: 0.7
+	-ta: Cutoff for amplified CNA, default: 0.1
+	-td: Cutoff for deleted CNA, default: -0.1
+	-p: Number of permutation, default: 0
+
+* Output:
+	OUTPUT_DIR/RAIGOUTPUT_CANCER_NAME_CHROMOSOME.lst
+
+
